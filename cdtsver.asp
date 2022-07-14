@@ -20,12 +20,12 @@ Dim ver
 Dim vers
 Set vers = CreateObject("Scripting.Dictionary")
 vers.add "rn", "Run"
-for i = 39 to 22 step -1
+for i = 49 to 22 step -1
 	vers.add "v4_0_" & i, "4.0." & i
 next
 
 
-ver = "v4_0_30"
+ver = "v4_0_39"
 
 ver = getFormVar("verSel", ver)
 
@@ -37,7 +37,7 @@ ver = getFormVar("verSel", ver)
 	<head>
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Content page - Canada.ca</title>
+		<title>Content page (<%=ver%>) - Canada.ca</title>
 		<meta content="width=device-width,initial-scale=1" name="viewport">
 		
 		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/cdts/compiled/soyutils.js"></script>
@@ -192,6 +192,7 @@ ver = getFormVar("verSel", ver)
 							"subtext" : "Employment Insurance - More"
 						}]
 					}, {
+						"id":"cppoasLink",
 					"text" : "Canada Pension Plan/Old Age Security",
 					"subLinks" : [{
 							"subhref" : "/stream4/sc/msca-mdsc/portal-portail/pro/vupi-vupi/view-payment-information.action",
@@ -210,9 +211,10 @@ ver = getFormVar("verSel", ver)
 			});
 		</script>
 		<main property="mainContentOfPage" class="container">
-		<h1 id="wb-cont" name="property">CDTS Test Page</h1>
+		<h1 id="wb-cont" name="property">CDTS Test Page (<%=ver%>)</h1>
 		<!-- <div data-ajax-replace="https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/<%=ver%>/cdts/ajax/securesamples.html"></div> -->
 			<h2>Select a CDTS version</h2>
+			<p>Currently viewing CDTS version <%=ver%>.</p>
 			<form action="cdtsver.asp" method="GET">
 				<label for="verSel">Select CDTS version</label>
 				<select id="verSel" name="verSel">
