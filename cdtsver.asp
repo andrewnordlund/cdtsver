@@ -18,16 +18,18 @@ End Function
 
 Dim ver
 Dim vers
+Dim theme
 Set vers = CreateObject("Scripting.Dictionary")
 vers.add "rn", "Run"
 for i = 49 to 22 step -1
 	vers.add "v4_0_" & i, "4.0." & i
 next
 
-
+theme = "gcweb"
 ver = "v4_0_39"
 
 ver = getFormVar("verSel", ver)
+theme = getFormVar("themeSel", theme)
 
 %>
 
@@ -40,26 +42,26 @@ ver = getFormVar("verSel", ver)
 		<title>Content page (<%=ver%>) - Canada.ca</title>
 		<meta content="width=device-width,initial-scale=1" name="viewport">
 		
-		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/cdts/compiled/soyutils.js"></script>
-		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/cdts/compiled/wet-en.js"></script>
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/cdts/compiled/soyutils.js"></script>
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/cdts/compiled/wet-en.js"></script>
 		
 		<noscript>
 			<!-- Write closure fall-back static file -->
-			<!-- /ROOT/app/cls/WET/gcweb/<%=ver%>/cdts/static/refTop.html -->
+			<!-- /ROOT/app/cls/WET/<%=theme%>/<%=ver%>/cdts/static/refTop.html -->
 					<!--[if gte IE 9 | !IE ]><!-->
-		<link href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/assets/favicon.ico" rel="icon" type="image/x-icon">
-		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/css/theme.min.css">
-		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/cdts/cdtsfixes.css">
+		<link href="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/assets/favicon.ico" rel="icon" type="image/x-icon">
+		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/css/theme.min.css">
+		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/cdts/cdtsfixes.css">
 		<!-- Are you using the application templates? If so add the following CSS file -->
-		<!-- <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/cdts/cdtsapps.css">-->
+		<!-- <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/cdts/cdtsapps.css">-->
 		<!--<![endif]-->
 		<!--[if lt IE 9]>
-		<link href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/assets/favicon.ico" rel="shortcut icon" />
-		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/css/ie8-theme.min.css" />
+		<link href="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/assets/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/css/ie8-theme.min.css" />
 		<![endif]-->
 		<!--[if lte IE 9]><![endif]-->
-		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/css/noscript.min.css" />
-		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/cdts/cdtsnoscript.css" />
+		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/css/noscript.min.css" />
+		<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/cdts/cdtsnoscript.css" />
 		</noscript>
 		<!-- Write closure template -->
 		<script>
@@ -72,7 +74,7 @@ ver = getFormVar("verSel", ver)
 	<body vocab="http://schema.org/" typeof="WebPage">
 		<div id="def-top">
 			<!-- Write closure fall-back static file -->
-			<!-- /ROOT/app/cls/WET/gcweb/<%=ver%>/cdts/static/appTop-en.html -->
+			<!-- /ROOT/app/cls/WET/<%=theme%>/<%=ver%>/cdts/static/appTop-en.html -->
 					<ul id="wb-tphp">
 			<li class="wb-slc"><a class="wb-sl" href="#wb-cont">Skip to main content</a></li>
 			<li class="wb-slc visible-sm visible-md visible-lg"><a class="wb-sl" href="#wb-info">Skip to "About this Web application"</a></li>
@@ -96,7 +98,7 @@ ver = getFormVar("verSel", ver)
 				<div class="row">
 					<div class="brand col-xs-5 col-md-4">
 						<a href="https://www.canada.ca/en.html">
-							<img src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/assets/sig-blk-en.svg" alt="" />
+							<img src="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/assets/sig-blk-en.svg" alt="" />
 							<span class="wb-inv"> Government of Canada / <span lang="fr">Gouvernement du Canada</span></span>
 						</a>
 					</div>
@@ -212,7 +214,7 @@ ver = getFormVar("verSel", ver)
 		</script>
 		<main property="mainContentOfPage" class="container">
 		<h1 id="wb-cont" name="property">CDTS Test Page (<%=ver%>)</h1>
-		<!-- <div data-ajax-replace="https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/<%=ver%>/cdts/ajax/securesamples.html"></div> -->
+		<!-- <div data-ajax-replace="https://ssl-templates.services.gc.ca/app/cls/WET/<%=theme%>/<%=ver%>/cdts/ajax/securesamples.html"></div> -->
 			<h2>Select a CDTS version</h2>
 			<p>Currently viewing CDTS version <%=ver%>.</p>
 			<form action="cdtsver.asp" method="GET">
@@ -241,10 +243,29 @@ ver = getFormVar("verSel", ver)
 						...
 					</div>
 				</section>
+				<section>
+				 <h2>Tabbed Interface</h2>
+				 <div class="wb-tabs ignore-session">
+					<div class="tabpanels">
+						<details id="details-panel1" open="open">
+							<summary>Tab 1</summary>
+							<p>This is a tab 1 with <a href="#">a tabbable link that goes nowhere</a>.</p>
+						</details>
+						<details id="details-panel2">
+							<summary>Tab 2</summary>
+							<p>This is a tab 2 with <a href="#">a tabbable link that goes nowhere</a>.</p>
+						</details>
+						<details id="details-panel3">
+							<summary>Tab 3</summary>
+							<p>This is a tab 3 with <a href="#">a tabbable link that goes nowhere</a>.</p>
+						</details>
+					</div>
+				</div>
+				</section>
 			</div>
 			<div id="def-preFooter">
 				<!-- Write closure fall-back static file -->
-				<!-- /ROOT/app/cls/WET/gcweb/<%=ver%>/cdts/static/preFooter-en.html -->
+				<!-- /ROOT/app/cls/WET/<%=theme%>/<%=ver%>/cdts/static/preFooter-en.html -->
 				<div class="pagedetails">
 	<div class="row">
 		<div class="col-sm-6 col-md-5 col-lg-4">
@@ -272,7 +293,7 @@ ver = getFormVar("verSel", ver)
 		</main>
 		<div id="def-footer">
 			<!-- Write closure fall-back static file -->
-			<!-- /ROOT/app/cls/WET/gcweb/<%=ver%>/cdts/static/appFooter-en.html -->
+			<!-- /ROOT/app/cls/WET/<%=theme%>/<%=ver%>/cdts/static/appFooter-en.html -->
 					<footer id="wb-info">
 			<!-- If you have any related links, add them here
 			<div class="landscape">
@@ -300,7 +321,7 @@ ver = getFormVar("verSel", ver)
 							<a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
 						</div>
 						<div class="col-xs-6 col-md-2 text-right">
-							<img src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/<%=ver%>/assets/wmms-blk.svg" alt="Symbol of the Government of Canada" />
+							<img src="https://www.canada.ca/etc/designs/canada/cdts/<%=theme%>/<%=ver%>/assets/wmms-blk.svg" alt="Symbol of the Government of Canada" />
 						</div>
 					</div>
 				</div>
