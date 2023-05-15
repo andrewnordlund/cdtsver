@@ -240,7 +240,8 @@ theme = getFormVar("themeSel", theme)
 						<h2 class="modal-title">Centred popup - Modal (Lightbox + Modal)</h2>
 					</header>
 					<div class="modal-body">
-						...
+						<a  href="https://www.nordburg.ca">Nordburg.ca</a>...<button>This does nothing</button>
+						<iframe src="https://www.nordburg.ca" title="Nordburg"></iframe>
 					</div>
 				</section>
 				<section>
