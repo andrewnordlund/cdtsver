@@ -15,10 +15,24 @@ Function getFormVar (nm, dVal)
 	getFormVar = rv
 End Function
 
+Function constructURL (src, theme, ver, file)
+	dim rv
+	' let patterns = ["https://www.canada.ca/etc/designs/canada/cdts/*", "https://cdts.service.canada.ca/app/cls/WET/*", "https://templates.service.gc.ca/*/cdts/*", "https://ssl-templates.services.gc.ca/*/cdts/*"];
+	
+	if src = "canada.ca" then
+		rv = "https://www.canada.ca/etc/designs/canada/cdts/" & theme & "/" & ver & "/cdts/compiled/" & file
+	elseif src = "ssl-templates" then
+		rv =" https://ssl-templates.services.gc.ca/" & ver & "/cls/wet/" & theme & "/cdts/compiled/" & file
+	end if
+
+	rv = rv & file
+	constructURL = rv
+End Function
 
 Dim ver
 Dim vers
 Dim theme
+Dim src
 Set vers = CreateObject("Scripting.Dictionary")
 vers.add "rn", "Run"
 for i = 49 to 22 step -1
@@ -27,9 +41,11 @@ next
 
 theme = "gcweb"
 ver = "v4_0_39"
+src = "canada.ca"
 
 ver = getFormVar("verSel", ver)
 theme = getFormVar("themeSel", theme)
+src = getFormVar("srcSel", src)
 
 %>
 
@@ -218,6 +234,12 @@ theme = getFormVar("themeSel", theme)
 			<h2>Select a CDTS version</h2>
 			<p>Currently viewing CDTS version <%=ver%>.</p>
 			<form action="cdtsver.asp" method="GET">
+				<label for="srcSel">Select CDTS Source<label>
+				<select id="srcSel" name="srcSel">
+					<option value="canada.ca">Canada.ca</option>
+					<option value="ssl-templates">ssl-templates</option>
+				</select>
+				<br>
 				<label for="verSel">Select CDTS version</label>
 				<select id="verSel" name="verSel">
 <%
